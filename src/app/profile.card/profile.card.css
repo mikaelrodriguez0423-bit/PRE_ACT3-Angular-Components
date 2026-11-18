@@ -1,192 +1,179 @@
-
-/* =========================================
-   AVENGERS — PROFILE IDENTITY CARD
-========================================= */
+/* =========================================================
+   MARVEL-INSPIRED RESUME PROFILE CARD
+   ========================================================= */
 
 .profile-card {
+  --marvel-red: #e62429;
+  --marvel-red-bright: #ff454a;
+  --marvel-blue: #1769aa;
+  --marvel-navy: #081b35;
+  --marvel-gold: #ffc928;
+  --card-text: #f4f7fb;
+  --card-muted: #b8c8dc;
+  --card-border: rgba(174, 205, 238, 0.2);
+
   position: relative;
+  isolation: isolate;
   overflow: hidden;
-
-  padding: 25px 28px;
-  margin: 30px 0;
-
-  background: linear-gradient(
-    135deg,
-    rgba(23, 59, 112, 0.35),
-    rgba(8, 13, 27, 0.96) 65%,
-    rgba(198, 40, 40, 0.12)
-  );
-
-  border: 1px solid rgba(40, 120, 200, 0.4);
-  border-left: 4px solid #C62828;
-
-  border-radius: 8px;
-
+  margin: 1.75rem 0;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  color: var(--card-text);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(23, 105, 170, 0.22), transparent 42%),
+    radial-gradient(ellipse at 0% 100%, rgba(230, 36, 41, 0.14), transparent 46%),
+    linear-gradient(135deg, #102e53 0%, var(--marvel-navy) 68%, #06152a 100%);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--marvel-red);
+  border-radius: 12px;
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.4),
-    inset 0 0 25px rgba(40, 120, 200, 0.08);
-
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-
-  transition: all 0.35s ease;
+    0 16px 38px rgba(3, 12, 25, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
-/* Holographic light effect */
-
+/* Subtle blue glow */
 .profile-card::before {
-  content: '';
-
   position: absolute;
-  top: 0;
-  right: -80px;
-
-  width: 180px;
-  height: 180px;
-
-  background: radial-gradient(
-    circle,
-    rgba(40, 120, 200, 0.2),
-    transparent 70%
-  );
-
+  z-index: -1;
+  top: -5rem;
+  right: -4rem;
+  width: 14rem;
+  aspect-ratio: 1;
+  content: "";
   pointer-events: none;
+  background: radial-gradient(circle, rgba(23, 105, 170, 0.28), transparent 70%);
 }
 
-/* Decorative gold corner */
-
+/* Gold comic-panel corner detail */
 .profile-card::after {
-  content: '';
-
   position: absolute;
   top: 0;
   right: 0;
-
-  width: 35px;
-  height: 35px;
-
-  border-top: 2px solid #D6B65C;
-  border-right: 2px solid #D6B65C;
-
+  width: 2rem;
+  height: 2rem;
+  content: "";
+  pointer-events: none;
+  border-top: 2px solid var(--marvel-gold);
+  border-right: 2px solid var(--marvel-gold);
   opacity: 0.8;
 }
 
-/* Hover interaction */
-
-.profile-card:hover {
-  transform: translateY(-5px);
-
-  border-color: rgba(214, 182, 92, 0.65);
-  border-left-color: #D6B65C;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.55),
-    0 0 20px rgba(40, 120, 200, 0.2);
+@media (hover: hover) and (pointer: fine) {
+  .profile-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 201, 40, 0.45);
+    border-left-color: var(--marvel-red);
+    box-shadow:
+      0 20px 44px rgba(3, 12, 25, 0.4),
+      0 0 22px rgba(23, 105, 170, 0.14);
+  }
 }
 
-/* Card Heading */
-
+/* Card heading */
 .profile-card h2 {
   position: relative;
-
-  margin-top: 0;
-  margin-bottom: 18px;
-
-  color: #D6B65C;
-
-  font-family: 'Bebas Neue', sans-serif;
-
-  font-size: 1.9rem;
-  letter-spacing: 2px;
-
+  margin: 0 0 1rem;
+  color: var(--marvel-gold);
+  font-family: "Bebas Neue", "Segoe UI", sans-serif;
+  font-size: clamp(1.55rem, 3vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
   text-transform: uppercase;
-
-  text-shadow:
-    0 0 10px rgba(214, 182, 92, 0.2);
+  text-shadow: 0 2px 14px rgba(255, 201, 40, 0.16);
 }
 
-/* Card Description */
+/* Short red-and-gold heading accent */
+.profile-card h2::after {
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin-top: 0.65rem;
+  content: "";
+  background: linear-gradient(90deg, var(--marvel-red), var(--marvel-gold));
+  border-radius: 999px;
+}
 
+/* Card description */
 .profile-card p {
   position: relative;
-
-  color: #B8C4D6;
-
-  font-family: 'Inter', sans-serif;
-
-  font-size: 0.95rem;
-  line-height: 1.8;
-
-  margin-bottom: 22px;
+  margin: 0 0 1.25rem;
+  color: var(--card-muted);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
 }
 
-/* Avengers Technology Tag */
+.profile-card p:last-child {
+  margin-bottom: 0;
+}
 
-.tag {
+/* Skills / profile tags */
+.profile-card .tag {
   display: inline-flex;
   align-items: center;
-
-  padding: 8px 14px;
-
-  border-radius: 4px;
-
+  margin: 0.25rem 0.35rem 0.25rem 0;
+  padding: 0.42rem 0.75rem;
+  color: #fff0a6;
   background: linear-gradient(
     135deg,
-    rgba(198, 40, 40, 0.2),
-    rgba(23, 59, 112, 0.35)
+    rgba(230, 36, 41, 0.2),
+    rgba(23, 105, 170, 0.28)
   );
-
-  border: 1px solid rgba(214, 182, 92, 0.4);
-
-  color: #D6B65C;
-
-  font-family: 'Inter', sans-serif;
-
-  font-size: 0.78rem;
-  font-weight: 700;
-
-  letter-spacing: 0.8px;
+  border: 1px solid rgba(255, 201, 40, 0.42);
+  border-radius: 5px;
+  box-shadow: inset 0 0 12px rgba(255, 201, 40, 0.04);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  line-height: 1.35;
   text-transform: uppercase;
-
-  box-shadow:
-    inset 0 0 10px rgba(214, 182, 92, 0.05);
-
-  transition: all 0.3s ease;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
-.tag:hover {
-  background: rgba(198, 40, 40, 0.25);
-
-  border-color: #C62828;
-
-  color: #FFFFFF;
-
-  box-shadow:
-    0 0 15px rgba(198, 40, 40, 0.25);
-}
-
-/* Mobile Responsive */
-
-@media (max-width: 768px) {
-  .profile-card {
-    padding: 22px 18px;
-    margin: 25px 0;
+@media (hover: hover) and (pointer: fine) {
+  .profile-card .tag:hover {
+    color: #fff;
+    background: rgba(230, 36, 41, 0.3);
+    border-color: var(--marvel-red-bright);
+    box-shadow: 0 0 14px rgba(230, 36, 41, 0.2);
   }
+}
 
-  .profile-card h2 {
-    font-size: 1.6rem;
+/* Smaller screens */
+@media (max-width: 600px) {
+  .profile-card {
+    margin: 1.25rem 0;
+    padding: 1.35rem 1.1rem;
+    border-radius: 10px;
   }
 
   .profile-card p {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
+  }
+
+  .profile-card .tag {
+    font-size: 0.7rem;
   }
 }
 
-/* Accessibility */
-
+/* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .profile-card,
-  .tag {
+  .profile-card .tag {
     transition: none;
+  }
+
+  .profile-card:hover {
+    transform: none;
   }
 }

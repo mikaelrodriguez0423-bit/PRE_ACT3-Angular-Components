@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================================
+   GLOBAL STYLES — MARVEL-INSPIRED RESUME
+   ========================================================= */
+
+:root {
+  --marvel-red: #e62429;
+  --marvel-red-bright: #ff454a;
+  --marvel-blue: #1769aa;
+  --marvel-navy: #081b35;
+  --marvel-gold: #ffc928;
+
+  --page-bg: #06152a;
+  --page-text: #f4f7fb;
+  --page-muted: #b8c8dc;
+  --section-border: rgba(174, 205, 238, 0.2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--page-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--page-text);
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(23, 105, 170, 0.16), transparent 42%),
+    radial-gradient(ellipse at 95% 35%, rgba(230, 36, 41, 0.08), transparent 40%),
+    linear-gradient(160deg, #0b2342 0%, var(--page-bg) 60%, #040d19 100%);
+  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Shared spacing for content sections */
+section {
+  margin: 1.6rem 0;
+}
+
+/* Shared heading style */
+.section-title {
+  margin: 0 0 1rem;
+  padding-bottom: 0.55rem;
+  color: var(--marvel-gold);
+  border-bottom: 1px solid var(--section-border);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+/* Small red accent beneath shared headings */
+.section-title::after {
+  display: block;
+  width: 3.25rem;
+  height: 3px;
+  margin-top: 0.55rem;
+  content: "";
+  background: linear-gradient(90deg, var(--marvel-red), var(--marvel-gold));
+  border-radius: 999px;
+}
+
+/* Global text selection */
+::selection {
+  color: #fff;
+  background: var(--marvel-red);
+}
+
+/* Responsive global typography */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+
+  section {
+    margin: 1.25rem 0;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

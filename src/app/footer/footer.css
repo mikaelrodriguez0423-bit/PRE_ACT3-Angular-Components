@@ -1,0 +1,185 @@
+/* =========================================================
+   MARVEL-INSPIRED RESUME FOOTER
+   ========================================================= */
+
+footer {
+  --marvel-red: #e62429;
+  --marvel-blue: #1769aa;
+  --marvel-navy: #081b35;
+  --marvel-panel: #102b50;
+  --marvel-panel-hover: #173963;
+  --marvel-gold: #ffc928;
+  --footer-text: #f4f7fb;
+  --footer-muted: #a9bdd4;
+  --footer-border: rgba(174, 205, 238, 0.2);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 3rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  color: var(--footer-text);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(230, 36, 41, 0.2), transparent 42%),
+    radial-gradient(ellipse at 100% 100%, rgba(23, 105, 170, 0.2), transparent 45%),
+    linear-gradient(145deg, #102e53 0%, var(--marvel-navy) 62%, #06152a 100%);
+  border: 1px solid rgba(255, 201, 40, 0.2);
+  border-top: 4px solid var(--marvel-red);
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(3, 12, 25, 0.35);
+}
+
+/* Optional footer section heading */
+footer .section-title {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.65rem;
+  color: #fff;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+footer .section-title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    var(--marvel-red),
+    var(--marvel-gold) 65%,
+    transparent
+  );
+  border-radius: 2px;
+}
+
+/* Resume details table */
+footer table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.55rem;
+  text-align: left;
+}
+
+footer th {
+  padding: 0 1rem 0.35rem;
+  color: var(--marvel-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+footer td {
+  padding: 0.9rem 1rem;
+  color: #e8f0fa;
+  background: var(--marvel-panel);
+  border-top: 1px solid var(--footer-border);
+  border-bottom: 1px solid var(--footer-border);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+footer td:first-child {
+  color: #fff;
+  font-weight: 650;
+  border-left: 1px solid var(--footer-border);
+  border-radius: 8px 0 0 8px;
+}
+
+footer td:last-child {
+  border-right: 1px solid var(--footer-border);
+  border-radius: 0 8px 8px 0;
+}
+
+footer tbody tr:hover td {
+  background: var(--marvel-panel-hover);
+  border-color: rgba(255, 201, 40, 0.55);
+}
+
+/* Skill / level badge */
+footer .level {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  color: #fff1a8;
+  background: rgba(230, 36, 41, 0.18);
+  border: 1px solid var(--marvel-red);
+  border-radius: 5px;
+  box-shadow: 0 0 14px rgba(230, 36, 41, 0.16);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+/* End-credit style copyright */
+footer .copyright {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  color: var(--footer-muted);
+  border-top: 1px solid var(--footer-border);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Keyboard accessibility for footer links */
+footer a {
+  color: #fff;
+  text-underline-offset: 0.2em;
+  transition: color 160ms ease;
+}
+
+footer a:hover {
+  color: var(--marvel-gold);
+}
+
+footer a:focus-visible {
+  outline: 2px solid var(--marvel-gold);
+  outline-offset: 4px;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  footer {
+    padding: 1.4rem 1rem;
+    border-radius: 10px;
+  }
+
+  footer .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  footer table {
+    min-width: 32rem;
+  }
+
+  footer th,
+  footer td {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  footer .copyright {
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+  }
+}
+
+/* Honor reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  footer *,
+  footer *::before,
+  footer *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
